@@ -1,0 +1,154 @@
+.portfolio-root {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 103;
+  top: 0;
+  left: 0;
+  background-color: #232946;
+  overflow-x: hidden;
+  transition: width 0.3s;
+  padding-top: 60px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar a {
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #eebbc3;
+  display: block;
+  transition: background 0.2s;
+}
+.sidebar a:hover {
+  background: #393e53;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #eebbc3;
+  cursor: pointer;
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 102;
+}
+.overlay.show {
+  display: block;
+}
+
+/* Header styles */
+header {
+  background: #fff;
+  padding: 2rem 1rem 1rem 4rem;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.menu-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 104;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-top: 0;
+  color: #232946;
+}
+
+/* Project grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+.project-card:hover {
+  box-shadow: 0 8px 24px rgba(35,41,70,0.07);
+}
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #eee;
+}
+.project-info {
+  padding: 1rem;
+  flex: 1;
+}
+.project-info h3 {
+  margin: 0 0 0.5rem 0;
+}
+.project-info p {
+  font-size: 1rem;
+  color: #555;
+}
+.project-info a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #232946;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  header {
+    padding-left: 2.5rem;
+  }
+  main {
+    padding: 0 1rem;
+  }
+}
