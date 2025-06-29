@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-//import AnimatedLoader from "./AnimatedLoader";
-//import ThemeToggle from './ThemeToggle.tsx';
-
+import React, { useState, useEffect } from "react";
 
 const projects = [
   {
@@ -21,25 +18,61 @@ const projects = [
 
 const Portfolio: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    // On mount, check for saved theme or system preference
+    const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    if (saved) {
+      setTheme(saved);
+      document.documentElement.setAttribute("data-theme", saved);
+    } else {
+      setTheme("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  }, []);
 
   const toggleSidebar = () => setSidebarOpen((open) => !open);
 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
   return (
     <div className="portfolio-root">
-    <header>
+      <header>
         <div className="header-info">
-        <h1>Tyler Schaefer</h1>
-        <p>Software Engineering | Applied Mathematics</p>
+          <h1>Tyler Schaefer</h1>
+          <p>Software Engineering | Applied Mathematics</p>
         </div>
-        <button className="menu-btn" onClick={toggleSidebar} aria-label="Open navigation">
-        &#9776;
-        </button>
-    </header>
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle dark/light theme"
+            title="Toggle dark/light mode"
+          >
+            {theme === "dark" ? (
+              <span role="img" aria-label="Switch to light mode">🌞</span>
+            ) : (
+              <span role="img" aria-label="Switch to dark mode">🌙</span>
+            )}
+          </button>
+          <button className="menu-btn" onClick={toggleSidebar} aria-label="Open navigation">
+            &#9776;
+          </button>
+        </div>
+      </header>
       <main>
         <section id="about">
           <h2>About Me</h2>
           <p>
-          I'm super cool, please please please hire me... please
+            I'm super cool, please please please hire me... please
           </p>
         </section>
         <section id="projects">
@@ -47,7 +80,10 @@ const Portfolio: React.FC = () => {
           <div className="projects-grid">
             {projects.map((proj, idx) => (
               <div className="project-card" key={idx}>
-                <img src={proj.image} alt={proj.title + " screenshot"} />
+                <div className="project-img-wrapper">
+                  <img src={proj.image} alt={proj.title + " screenshot"} />
+                  <div className="img-gloss" />
+                </div>
                 <div className="project-info">
                   <h3>{proj.title}</h3>
                   <p>{proj.description}</p>
