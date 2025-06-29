@@ -98,11 +98,20 @@ const Portfolio: React.FC = () => {
             I'm super cool, please please please hire me... please
           </p>
         </section>
+
         <section id="projects">
           <h2>Projects</h2>
           <div className="projects-grid">
             {projects.map((proj, idx) => (
-              <div className="project-card" key={idx}>
+              <a
+                className="project-card"
+                key={idx}
+                href={proj.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={0}
+                aria-label={`View project: ${proj.title}`}
+              >
                 <div className="project-img-wrapper">
                   <img src={proj.image} alt={proj.title + " screenshot"} />
                   <div className="img-gloss" />
@@ -110,14 +119,13 @@ const Portfolio: React.FC = () => {
                 <div className="project-info">
                   <h3>{proj.title}</h3>
                   <p>{proj.description}</p>
-                  <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                    View Project
-                  </a>
+                  <span className="project-link-indicator">View Project</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
+
         <section id="contact">
           <h2>Contact</h2>
           <p>

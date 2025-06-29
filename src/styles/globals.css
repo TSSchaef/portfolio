@@ -12,7 +12,7 @@
   --color-link-hover: #fff;
   --color-accent: #fff; /* can use silver if you want metallic accent */
   --color-card: #19191c;
-  --color-shadow: 0 4px 24px 0 rgba(0,0,0,0.25);
+  --color-card-shadow: 0 2px 16px 0 rgba(255,255,255,0.13); /* white highlight shadow for dark */
 
   --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
   --font-heading: 'Playfair Display', serif;
@@ -33,7 +33,7 @@
   --color-link-hover: #000;
   --color-accent: #000; /* can use silver if you want metallic accent */
   --color-card: #f8f8fa;
-  --color-shadow: 0 4px 24px 0 rgba(200,200,200,0.24);
+  --color-card-shadow: 0 2px 16px 0 rgba(0,0,0,0.10); /* dark shadow for light */
 }
 
 html, body {
