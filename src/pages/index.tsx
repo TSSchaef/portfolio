@@ -5,13 +5,13 @@ const projects = [
     title: "Ray Tracer",
     description: "Ray Tracer developed from scratch in C, includes importance and adaptive sampling. A BVH and object instancing.",
     image: "cornell.png",
-    link: "#"
+    link: "https://github.com/TSSchaef/336-RayTracer"
   },
   {
     title: "Connect-4 Solver",
     description: "Nega-Max (Mini-Max variant) tree with Alpha-Beta pruning. Transposition table to improve efficiency",
     image: "connect4.png",
-    link: "#"
+    link: "https://github.com/TSSchaef/connect-4"
   },
   // Add more projects as needed
 ];
@@ -95,7 +95,13 @@ const Portfolio: React.FC = () => {
         <section id="about">
           <h2>About Me</h2>
           <p>
-            I'm super cool, please please please hire me... please
+I'm a senior at Iowa State University studying Software Engineering and Applied Mathematics, graduating in December 2025. Currently, I'm spending the summer interning with the Distributed Hosting team at Principal Financial Group, learning the ins and outs of running reliable systems at scale.
+          </p>
+          <p>
+I like solving tricky problems—whether it’s in code, a math proof, or an interesting puzzle. I enjoy thinking deeply about how things work and how to make them work better.
+          </p>
+          <p>
+Outside of school and work, I spend time reading, painting, and getting lost in logic puzzles. I’m always up for a challenge, especially if it means learning something new along the way.
           </p>
         </section>
 
@@ -130,6 +136,15 @@ const Portfolio: React.FC = () => {
           <h2>Contact</h2>
           <p>
             Email: <a href="mailto:tschaeferstorm@gmail.com">tschaeferstorm@gmail.com</a>
+          </p>
+          <p>
+            GitHub: <a href="https://github.com/TSSchaef">https://github.com/TSSchaef</a>
+          </p>
+          <p>
+            LinkedIn: <a href="https://www.linkedin.com/in/tyler-schaefer-1454bb26a">www.linkedin.com/in/tyler-schaefer-1454bb26a</a>
+          </p>
+          <p>
+            Resume: <a href="">TO DO: Add up to date pdf download</a>
           </p>
         </section>
       </main>
