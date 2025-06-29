@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -95,7 +96,7 @@ const Portfolio: React.FC = () => {
         <section id="about">
           <h2>About Me</h2>
           <p>
-I'm a senior at Iowa State University studying Software Engineering and Applied Mathematics, graduating in December 2025. Currently, I'm spending the summer interning with the Distributed Hosting team at Principal Financial Group, learning the ins and outs of running reliable systems at scale.
+I’m a senior at Iowa State University studying Software Engineering and Applied Mathematics, graduating in December 2025. Currently, I’m spending the summer interning with the Distributed Hosting team at Principal Financial Group, learning the ins and outs of running reliable systems at scale.
           </p>
           <p>
 I like solving tricky problems—whether it’s in code, a math proof, or an interesting puzzle. I enjoy thinking deeply about how things work and how to make them work better.
@@ -119,7 +120,7 @@ Outside of school and work, I spend time reading, painting, and getting lost in 
                 aria-label={`View project: ${proj.title}`}
               >
                 <div className="project-img-wrapper">
-                  <img src={proj.image} alt={proj.title + " screenshot"} />
+                  <Image src={proj.image} alt={proj.title + " screenshot"} />
                   <div className="img-gloss" />
                 </div>
                 <div className="project-info">
