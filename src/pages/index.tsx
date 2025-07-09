@@ -5,13 +5,13 @@ const projects = [
   {
     title: "Ray Tracer",
     description: "Ray Tracer developed from scratch in C, includes importance and adaptive sampling. A BVH and object instancing.",
-    image: "cornell.png",
+    image: "/cornell.png",
     link: "https://github.com/TSSchaef/336-RayTracer"
   },
   {
     title: "Connect-4 Solver",
     description: "Nega-Max (Mini-Max variant) tree with Alpha-Beta pruning. Transposition table to improve efficiency",
-    image: "connect4.png",
+    image: "/connect4.png",
     link: "https://github.com/TSSchaef/connect-4"
   },
   // Add more projects as needed
