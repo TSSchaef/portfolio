@@ -12,8 +12,19 @@ const projects = [
     title: "Connect-4 Solver",
     description: "Nega-Max (Mini-Max variant) tree with Alpha-Beta pruning. Transposition table to improve efficiency",
     image: "",
-    //link: "https://github.com/TSSchaef/connect-4"
     link: "/connect4-demo"
+  },
+  {
+    title: "U-Net Semantic Segmentation",
+    description: "Software Engineering capstone project, working as a machine learning analyst on a team of 4 to optimize a U-Net ML Model.",
+    image: "",
+    link: "https://sddec25-01.sd.ece.iastate.edu/"
+  },
+  {
+    title: "Asteroids",
+    description: "Fun Arcade Game",
+    image: "",
+    link: "https://github.com/TSSchaef/asteroids"
   },
   // Add more projects as needed
 ];
