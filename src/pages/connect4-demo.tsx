@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, /*useState*/ } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ const ASPECT_RATIO = 5 / 4;
 
 const Connect4Demo = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [containerWidth, setContainerWidth] = useState(320);
+  /*const [containerWidth, setContainerWidth] = useState(320);
 
   // Responsive canvas sizing
   useEffect(() => {
@@ -18,10 +18,10 @@ const Connect4Demo = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, []);*/
 
   useEffect(() => {
-    // @ts-ignore
+    //@ts-expect-error Weird stuff with window.Module
     window.Module = {
       locateFile: (path: string) => `/connect4/${path}`,
       canvas: canvasRef.current,
@@ -35,7 +35,7 @@ const Connect4Demo = () => {
       document.body.appendChild(script);
       return () => {
         document.body.removeChild(script);
-        // @ts-ignore
+        //@ts-expect-error Weird stuff with window.Module
         delete window.Module;
       };
     }
