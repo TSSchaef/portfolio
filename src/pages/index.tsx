@@ -5,25 +5,25 @@ const projects = [
   {
     title: "Ray Tracer",
     description: "Ray Tracer developed from scratch in C, includes importance and adaptive sampling. A BVH and object instancing.",
-    image: "",
+    image: "/cornell.png",
     link: "https://github.com/TSSchaef/336-RayTracer"
   },
   {
     title: "Connect-4 Solver",
     description: "Nega-Max (Mini-Max variant) tree with Alpha-Beta pruning. Transposition table to improve efficiency",
-    image: "",
+    image: "/connect4.png",
     link: "/connect4-demo"
   },
   {
     title: "U-Net Semantic Segmentation",
     description: "Software Engineering capstone project, working as a machine learning analyst on a team of 4 to optimize a U-Net ML Model.",
-    image: "",
+    image: "/unet.png",
     link: "https://sddec25-01.sd.ece.iastate.edu/"
   },
   {
     title: "Asteroids",
-    description: "Fun Arcade Game",
-    image: "",
+    description: "The classic arcade game reborn.",
+    image: "/asteroid.png",
     link: "https://github.com/TSSchaef/asteroids"
   },
   // Add more projects as needed
@@ -132,7 +132,7 @@ Outside of school and work, I spend time reading, painting, and getting lost in 
                 aria-label={`View project: ${proj.title}`}
               >
                 <div className="project-img-wrapper">
-                  <Image src={proj.image} alt={proj.title + " screenshot"} />
+                  <Image src={proj.image} layout="fill" alt={proj.title + " screenshot"} />
                   <div className="img-gloss" />
                 </div>
                 <div className="project-info">
