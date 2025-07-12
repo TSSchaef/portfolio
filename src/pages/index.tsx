@@ -6,25 +6,29 @@ const projects = [
     title: "Ray Tracer",
     description: "Ray Tracer developed from scratch in C, includes importance and adaptive sampling. A BVH and object instancing.",
     image: "/cornell.png",
-    link: "https://github.com/TSSchaef/336-RayTracer"
+    link: "https://github.com/TSSchaef/336-RayTracer",
+    target: "_blank"
   },
   {
     title: "Connect-4 Solver",
     description: "Nega-Max (Mini-Max variant) tree with Alpha-Beta pruning. Transposition table to improve efficiency",
     image: "/connect4.png",
-    link: "/connect4-demo"
+    link: "/connect4-demo",
+    target: ""
   },
   {
     title: "U-Net Semantic Segmentation",
     description: "Software Engineering capstone project, working as a machine learning analyst on a team of 4 to optimize a U-Net ML Model.",
     image: "/unet.png",
-    link: "https://sddec25-01.sd.ece.iastate.edu/"
+    link: "https://sddec25-01.sd.ece.iastate.edu/",
+    target: "_blank"
   },
   {
     title: "Asteroids",
     description: "The classic arcade game reborn.",
     image: "/asteroid.png",
-    link: "https://github.com/TSSchaef/asteroids"
+    link: "https://github.com/TSSchaef/asteroids",
+    target: "_blank"
   },
   // Add more projects as needed
 ];
@@ -126,7 +130,7 @@ Outside of school and work, I spend time reading, painting, and getting lost in 
                 className="project-card"
                 key={idx}
                 href={proj.link}
-                //target="_blank"
+                target={proj.target}
                 rel="noopener noreferrer"
                 tabIndex={0}
                 aria-label={`View project: ${proj.title}`}
