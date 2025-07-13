@@ -1,4 +1,4 @@
-import { useEffect, useRef, /*useState*/ } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -7,6 +7,30 @@ const ASPECT_RATIO = 5 / 4;
 
 const Connect4Demo = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    // On mount, check for saved theme or system preference
+    const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    if (saved) {
+      setTheme(saved);
+      document.documentElement.setAttribute("data-theme", saved);
+    } else {
+      setTheme("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
   /*const [containerWidth, setContainerWidth] = useState(320);
 
   // Responsive canvas sizing
@@ -50,6 +74,8 @@ const Connect4Demo = () => {
         <div className="w-full max-w-2xl mx-auto">
 
           <section className="rounded-lg shadow-md border border-border bg-card p-6 mb-6">
+
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           {/* Back navigation */}
           <div className="mb-4">
             <Link href="/" passHref legacyBehavior>
@@ -57,6 +83,41 @@ const Connect4Demo = () => {
                 ← Back to Projects
               </a>
             </Link>
+          </div>
+
+         <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle dark/light theme"
+            title="Toggle dark/light mode"
+          >
+            {theme === "dark" ? (
+              // Minimal white sun icon for dark mode
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="5" stroke="#fff" strokeWidth="2" fill="none"/>
+                <g stroke="#fff" strokeWidth="2">
+                  <line x1="12" y1="2" x2="12" y2="4"/>
+                  <line x1="12" y1="20" x2="12" y2="22"/>
+                  <line x1="2" y1="12" x2="4" y2="12"/>
+                  <line x1="20" y1="12" x2="22" y2="12"/>
+                  <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+                  <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+                  <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
+                  <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>
+                </g>
+              </svg>
+            ) : (
+              // Minimal black moon icon for light mode
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+                  fill="#111"
+                />
+              </svg>
+            )}
+          </button>
           </div>
 
             <h1 className="text-2xl font-bold mb-4 text-center">Connect-4 Demo</h1>
