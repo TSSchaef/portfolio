@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const projects = [
   {
@@ -62,6 +64,9 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="portfolio-root">
+<Analytics/>
+<SpeedInsights/>
+
       <header>
         <div className="header-info">
           <h1>Tyler Schaefer</h1>
