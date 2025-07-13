@@ -44,7 +44,15 @@ const Connect4Demo = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);*/
 
+
   useEffect(() => {
+      if(!canvasRef.current) return;
+      const unblockScroll = () => {
+          // Do NOT call e.preventDefault() so page can scroll
+      };
+
+      canvasRef.current.removeEventListener("wheel", unblockScroll);
+      canvasRef.current.removeEventListener("touchmove", unblockScroll);
     //@ts-expect-error Weird stuff with window.Module
     window.Module = {
       locateFile: (path: string) => `/connect4/${path}`,
@@ -58,12 +66,7 @@ const Connect4Demo = () => {
       script.async = true;
       document.body.appendChild(script);
 
-      const unblockScroll = (e: Event) => {
-          // Do NOT call e.preventDefault() so page can scroll
-      };
 
-      canvas.removeEventListener("wheel", unblockScroll);
-      canvas.removeEventListener("touchmove", unblockScroll);
       return () => {
         document.body.removeChild(script);
         //@ts-expect-error Weird stuff with window.Module
